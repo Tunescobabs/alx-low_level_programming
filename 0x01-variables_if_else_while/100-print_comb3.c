@@ -1,34 +1,27 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 /**
- * main - Prints numbers between 00 to 89.
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-int i,e;
+int d;
 
-i = 48;
-e = 48;
-while(i<58)
+for (d = 0; d < 90; d++)
 {
-if (e != i && e < i)
+for ()
 {
-putchar(e);
-putchar(i);
-if (i == 57 && e == 56)
-{
-break;
-
+putchar((d / 10) + '0');
+putchar((d % 10) + '0');
 }
+if (d != 89)
+{
 putchar(',');
-putchar(',');
-i++;
-
+putchar(' ');
 }
-
-e++;
 }
 putchar('\n');
 return (0);
