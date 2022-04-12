@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * _isalpha - check for lowercase or uppercase
+ * _isalpha - check the code for Holberton School students.
+ *@c: letter being tested
  * Return: Always 0
  */
 
