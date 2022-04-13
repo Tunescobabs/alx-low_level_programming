@@ -8,31 +8,38 @@
 
 void times_table(void)
 {
-int x, y, product;
-for (x = 0; x <= 9; x++)
+int a = 0;
+int b;
+int rep;
+while (a <= 9)
 {
-for (y = 0; y <= 9; y++)
+b = 0;
+while (b <= 9)
 {
-product = x * y;
-if (y != 0)
+rep = a * b;
+if (b == 0)
+{
+_putchar('0' + rep);
+}
+else if (rep < 10)
+{
+_putchar(' ');
+_putchar('0' + rep);
+}
+
+else
+{
+_putchar('0' + rep / 10);
+_putchar('0' + rep % 10);
+}
+if (b < 9)
 {
 _putchar(',');
 _putchar(' ');
 }
-if (y == 0)
-{
-_putchar('0');
-}
-else if (product >= 10)
-{
-_putchar((product / 10) + '0');
-_putchar((product % 10) + '0');
-}
-else if ((product < 10) && (y != 0))
-{
-_putchar(' ');
-_putchar((product % 10) + '0');
-}
+b++;
 }
 _putchar('\n');
+a++;
+}
 }
