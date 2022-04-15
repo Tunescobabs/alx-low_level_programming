@@ -2,9 +2,11 @@
 #include <stdio.h>
 
 /**
- * main - prints the numbers from 1 to 100, followed by a new line
- * but for multiples of three prints Fizz instead of the number
- * and for the multiples of five prints Buzz
+ * main - Prints the numbers from 1 to 100
+ * followed by a new line but for multiples
+ * of three prints fizz, for multiples of five
+ * prints buzz and for multiples of both five
+ * and tgree prints FizzBuzz
  * Return: Always 0 (Success)
  */
 
