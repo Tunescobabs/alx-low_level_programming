@@ -6,10 +6,7 @@
  * Return: void
  */
 
-void swap_int(int *a, int *b)
+void rest_to_98(int *n)
 {
-
-	*a += *b;
-	*b = *a - *b;
-	*a = *a - *b;
+	*n = 98;
 }
