@@ -1,49 +1,33 @@
-915 Bytes
-/*
- * File: 1-create_file.c
- * Auth: izi martins
- */
-
-
-#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/uio.h>
 #include <unistd.h>
-#include <stdlib.h>
+#include <fcntl.h>
+#include "main.h"
 
 /**
- * create_file - Creates a file with read and write permissions for user if the
- * file does not exist. Truncates the file if it exists. Fills the file with
- * the contents of text_content.
- *
- * @filename: Name of the file that is to be created if it doesn't exist.
- * @text_content: Content of the text.
- *
- * Return: 1 if success, otherwise -1.
+ * create_file - a function that creates a file
+ * @filename: the filename to create
+ * @text_content: a NULL terminated string to write to the file
+ * Return: 1 on success, -1 if file can not be created, nor written
  */
-
 int create_file(const char *filename, char *text_content)
 {
-	ssize_t file;
-	ssize_t b_write;
-	size_t length;
+	int fdo, fdw, len = 0;
 
-	if (!filename)
+	if (filename == NULL)
 		return (-1);
 
-	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
-	if (file == -1)
+	fdo = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0600);
+	if (fdo < 0)
 		return (-1);
 
-	b_write = 0;
-	if (text_content)
-	{
-		for (length = 0; text_content[length]; length++)
-			;
+	while (text_content && *(text_content + len))
+		len++;
 
-		b_write = write(file, text_content, length);
-	}
-	close(file);
-	if (b_write == -1)
+	fdw = write(fdo, text_content, len);
+	close(fdo);
+	if (fdw < 0)
 		return (-1);
-
 	return (1);
 }
